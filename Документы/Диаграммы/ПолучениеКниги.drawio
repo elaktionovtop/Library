@@ -1,0 +1,107 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
+  <diagram name="Page-1" id="2YBvvXClWsGukQMizWep">
+    <mxGraphModel dx="877" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-1" value="Читатель" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="370" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-2" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="_RrlDfQ-xXG5oGtXa7KV-4" target="_RrlDfQ-xXG5oGtXa7KV-1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="740" as="sourcePoint" />
+            <mxPoint x="110" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-3" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" target="_RrlDfQ-xXG5oGtXa7KV-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="110" y="740" as="sourcePoint" />
+            <mxPoint x="115" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-4" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="104" y="450" width="15" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-5" value="Библиотекарь" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="370" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-6" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="_RrlDfQ-xXG5oGtXa7KV-8" target="_RrlDfQ-xXG5oGtXa7KV-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="740" as="sourcePoint" />
+            <mxPoint x="210" y="460" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-7" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1" target="_RrlDfQ-xXG5oGtXa7KV-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="740" as="sourcePoint" />
+            <mxPoint x="215" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-8" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="204" y="530" width="15" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-9" value="BookInfo" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=0;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="320" y="380" width="100" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-10" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="_RrlDfQ-xXG5oGtXa7KV-9">
+          <mxGeometry x="45" y="90" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-23" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="_RrlDfQ-xXG5oGtXa7KV-9">
+          <mxGeometry x="45" y="180" width="10" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-11" value="Книги" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="485" y="381" width="100" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-12" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="_RrlDfQ-xXG5oGtXa7KV-11">
+          <mxGeometry x="43" y="239" width="14" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-15" value="Поиск книги" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" target="_RrlDfQ-xXG5oGtXa7KV-10">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="120" y="470" as="sourcePoint" />
+            <mxPoint x="340" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-17" value="Информация о книге" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="_RrlDfQ-xXG5oGtXa7KV-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="510" as="sourcePoint" />
+            <mxPoint x="120" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-19" value="Запрос книги" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" source="_RrlDfQ-xXG5oGtXa7KV-4">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="130" y="540" as="sourcePoint" />
+            <mxPoint x="200" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-20" value="Запрос книги" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0.492;entryY=0.524;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="_RrlDfQ-xXG5oGtXa7KV-8" target="_RrlDfQ-xXG5oGtXa7KV-9">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="230" y="560" as="sourcePoint" />
+            <mxPoint x="320" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-21" value="Информация о книге" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1" source="_RrlDfQ-xXG5oGtXa7KV-9">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="590" as="sourcePoint" />
+            <mxPoint x="220" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-24" value="Запрос книги" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1" target="_RrlDfQ-xXG5oGtXa7KV-11">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="220" y="620" as="sourcePoint" />
+            <mxPoint x="420" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-25" value="Выдача книги" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=-0.138;exitY=0.998;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="_RrlDfQ-xXG5oGtXa7KV-12">
+          <mxGeometry x="-0.0014" relative="1" as="geometry">
+            <mxPoint x="330" y="670" as="sourcePoint" />
+            <mxPoint x="120" y="680" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_RrlDfQ-xXG5oGtXa7KV-26" value="Получение кнги" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="320" y="200" width="125" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
