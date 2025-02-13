@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9">
   <diagram name="Страница — 1" id="43Tc6AxUeFtdhghfdACa">
-    <mxGraphModel dx="1052" dy="1864" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1063" dy="1878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -127,7 +127,7 @@
             <mxPoint x="710" y="525" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="gBeeqcIw6pwTZj29JM20-1" value="&lt;span&gt;Варианты использования системы&lt;/span&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document;fontSize=16;fontStyle=1" parent="1" vertex="1">
+        <mxCell id="gBeeqcIw6pwTZj29JM20-1" value="&lt;span&gt;Варианты использования системы Библиотека&lt;/span&gt;" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.document;fontSize=16;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="730" y="-50" width="240" height="100" as="geometry" />
         </mxCell>
       </root>
