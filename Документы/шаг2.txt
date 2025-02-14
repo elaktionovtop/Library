@@ -1,0 +1,25 @@
+﻿## Шаг 2
+подключаем Microsoft.EntityFrameworkCore
+	Microsoft.EntityFrameworkCore.SqlServer
+	Microsoft.EntityFrameworkCore.Tools
+	Microsoft.Extensions.Configuration
+	Microsoft.Extensions.Configuration.Json
+создаем Models  
+	добавляем Reader(Person)
+создаем Data
+	добавляем DbLibraryContext
+пересобираем - не запускаем!
+добавляем config.json
+	настраиваем
+создаем статические ссылки на Repository и Views из App
+App.xml
+добавляем ReadersViewModel
+формируем ReadersWindow
+собираем без ошибок
+запускаем миграцию 
+Add-Migration Init
+создается папка миграции
+Update-Database
+создаем БД
+вводим читателей
+настраиваем таблицу читателей

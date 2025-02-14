@@ -4,9 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library"
+        xmlns:views="clr-namespace:Library.Views"
+        xmlns:viewModels="clr-namespace:Library.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Библиотека" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModels:MainViewModel/>
+    </Window.DataContext>
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="_Выдать книгу" Command="{Binding BorrowBookCommand}"/>
+            <MenuItem Header="Вернуть _книгу" Command="{Binding ReturnBookCommand}"/>
+            <MenuItem Header="_Читатели" Command="{Binding ReadersCommand}"/>
+            <MenuItem Header="_Экземпляры" Command="{Binding BookCopiesCommand}"/>
+            <MenuItem Header="_Библиотекари" Command="{Binding LibrariansCommand}"/>
+        </Menu>
+        <Grid>
 
-    </Grid>
+        </Grid>
+    </StackPanel>
 </Window>
+
+<!-- команды: выдать книгу, вернуть книгу, читатели, экземпляры, библиотекари-->

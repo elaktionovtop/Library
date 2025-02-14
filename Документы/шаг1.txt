@@ -1,0 +1,10 @@
+﻿## Шаг 1
+подключаем CommunityToolkit.Mvvm  
+создаем Views  
+	добавляем ReadersWindow  
+создаем ViewModels  
+	добавляем MainViewModel  
+		команды меню  
+		переход к Readers и возврат  
+MainWindow  
+	добавляем меню  
