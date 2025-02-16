@@ -17,7 +17,8 @@ namespace Library.Data
 {
     public class DbLibraryContext : DbContext
     {
-        public DbSet<Person> Readers { get; set; }
+        public DbSet<Reader> Readers { get; set; }
+        public DbSet<Author> Authors { get; set; }
 
         public DbLibraryContext(DbContextOptions<DbLibraryContext> options) : base(options) 
         { 
@@ -27,9 +28,11 @@ namespace Library.Data
         public void Load()
         {
             Readers.Load();
+            Authors.Load();
         }
 
-        public IEnumerable<Person> GetReaders() => Readers;
+        public IEnumerable<Reader> GetReaders() => Readers;
+        public IEnumerable<Author> GetAuthors() => Authors;
 
         // фабричный метод удобней для создания контекста бД
         // нежели конструктор

@@ -1,4 +1,4 @@
-﻿## Шаг 2
+﻿Шаг 2
 подключаем Microsoft.EntityFrameworkCore
 	Microsoft.EntityFrameworkCore.SqlServer
 	Microsoft.EntityFrameworkCore.Tools
@@ -13,13 +13,17 @@
 	настраиваем
 создаем статические ссылки на Repository и Views из App
 App.xml
+
 добавляем ReadersViewModel
 формируем ReadersWindow
+
+
 собираем без ошибок
 запускаем миграцию 
 Add-Migration Init
 создается папка миграции
 Update-Database
 создаем БД
-вводим читателей
+редактируем Readers
 настраиваем таблицу читателей
+

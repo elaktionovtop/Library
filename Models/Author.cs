@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Library.Models
 {
-    public class Person
+    public class Author
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        public override string ToString() =>
-            $"{Id}: {Name}";
+        public override string ToString() => $"{Id}:{Name}";
     }
 }

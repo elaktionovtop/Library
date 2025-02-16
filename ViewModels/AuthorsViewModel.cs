@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
-using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,18 +13,18 @@ using Library.Models;
 
 namespace Library.ViewModels
 {
-    public partial class ReadersViewModel : ObservableObject
+    public partial class AuthorsViewModel : ObservableObject
     {
         [ObservableProperty]
-        private ObservableCollection<Reader> _items;
+        private ObservableCollection<Author> _items;
 
         [ObservableProperty]
-        private Reader _selectedItem;
+        private Author _selectedItem;
 
         // конструктор получает данные из БД
-        public ReadersViewModel(IEnumerable<Reader> items)
+        public AuthorsViewModel(IEnumerable<Author> items)
         {
-            Items = new ObservableCollection<Reader>(items);
+            Items = new ObservableCollection<Author>(items);
             if(Items.Count > 0)
             {
                 SelectedItem = Items[0];

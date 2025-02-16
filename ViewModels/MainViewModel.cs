@@ -35,7 +35,7 @@ namespace Library.ViewModels
         [RelayCommand]
         public void BookCopies()
         {
-            MessageBox.Show("BookCopies");
+            new BookCopiesWindow().ShowDialog();
         }
 
         [RelayCommand]

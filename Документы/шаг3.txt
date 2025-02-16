@@ -1,0 +1,22 @@
+﻿окно экземпляров - заглушка  
+окно книг - заглушка  
+окно авторов  
+
+Шаг 3
+добавляем BookCopiesWindow
+вызываем BookCopiesWindow
+добавляем BookCopiesViewModel
+
+добавляем BooksWindow
+вызываем BooksWindow
+добавляем BooksViewModel
+
+добавляем AuthorsWindow
+вызываем AuthorsWindow
+добавляем AuthorsViewModel
+
+добавляем Author
+добавляем Authors в DbContext
+редактируем Authors
+
+выполняем миграцию

@@ -1,11 +1,11 @@
-﻿<Window x:Class="Library.Views.ReadersWindow"
+﻿<Window x:Class="Library.Views.AuthorsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.ViewModels"
         mc:Ignorable="d"
-        Title="Читатели" Height="450" Width="800">
+        Title="Авторы" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -19,9 +19,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Name}" 
-                                    Header="Читатель"/>
-                <DataGridTextColumn Binding="{Binding BirthYear}" 
-                                    Header="Читатель"/>
+                                    Header="Автор"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

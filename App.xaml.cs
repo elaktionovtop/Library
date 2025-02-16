@@ -20,8 +20,11 @@ namespace Library
         private static MainViewModel? _mainViewModel;
         public static MainViewModel MainViewModel => _mainViewModel;
 
-        private static ReadersViewModel? _readerViewModel;
-        public static ReadersViewModel ReadersViewModel => _readerViewModel;
+        private static ReadersViewModel? _readersViewModel;
+        public static ReadersViewModel ReadersViewModel => _readersViewModel;
+
+        private static AuthorsViewModel? _authorsViewModel;
+        public static AuthorsViewModel AuthorsViewModel => _authorsViewModel;
 
         void App_StartUp(object sender, EventArgs e)
         {
@@ -32,8 +35,10 @@ namespace Library
                 _repository.Load();
 
                 _mainViewModel = new MainViewModel();
-                _readerViewModel = new ReadersViewModel
+                _readersViewModel = new ReadersViewModel
                     (_repository.GetReaders());
+                _authorsViewModel = new AuthorsViewModel
+                    (_repository.GetAuthors());
             }
             catch(Exception ex)
             {
