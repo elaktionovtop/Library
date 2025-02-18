@@ -23,6 +23,11 @@ namespace Library
         private static ReadersViewModel? _readersViewModel;
         public static ReadersViewModel ReadersViewModel => _readersViewModel;
 
+
+        private static BooksViewModel? _booksViewModel;
+        public static BooksViewModel BooksViewModel =>
+        _booksViewModel; 
+        
         private static AuthorsViewModel? _authorsViewModel;
         public static AuthorsViewModel AuthorsViewModel => _authorsViewModel;
 
@@ -39,6 +44,8 @@ namespace Library
                     (_repository.GetReaders());
                 _authorsViewModel = new AuthorsViewModel
                     (_repository.GetAuthors());
+                _booksViewModel = new BooksViewModel
+                    (_repository.GetBooks(), _repository.GetAuthors());
             }
             catch(Exception ex)
             {

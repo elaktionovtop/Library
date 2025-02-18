@@ -4,23 +4,35 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.ViewModels"
+        xmlns:viewModels="clr-namespace:Library.ViewModels"
         mc:Ignorable="d"
         Title="Авторы" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
-        <DataGrid ItemsSource="{Binding Items}"
+        <DataGrid Grid.Column="0" MinWidth="120" Margin="10"
+                  ItemsSource="{Binding Items}"
                   SelectedItem="{Binding SelectedItem, 
             Mode=TwoWay}"
                   AutoGenerateColumns="False"
-                  HorizontalAlignment="Center"
-                  VerticalAlignment="Center">
+                  HorizontalAlignment="Left">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Name}" 
                                     Header="Автор"/>
             </DataGrid.Columns>
         </DataGrid>
+        <ListBox Grid.Column="1" MinWidth="80" Margin="10"
+                 ItemsSource="{Binding SelectedItem.Books}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
+
+

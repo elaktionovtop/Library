@@ -19,7 +19,7 @@ namespace Library.ViewModels
         private ObservableCollection<Author> _items;
 
         [ObservableProperty]
-        private Author _selectedItem;
+        private Author? _selectedItem;
 
         // конструктор получает данные из БД
         public AuthorsViewModel(IEnumerable<Author> items)

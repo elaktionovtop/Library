@@ -22,6 +22,7 @@ namespace Library.Views
         public BooksWindow()
         {
             InitializeComponent();
+            DataContext = App.BooksViewModel;
         }
     }
 }
