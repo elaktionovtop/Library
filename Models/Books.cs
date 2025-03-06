@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Library.Migrations;
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,12 +16,14 @@ namespace Library.Models
 
         public override string ToString()
         {
-            string result = $"{Title} {Authors?[0].Name ?? "Неизвестен"} ";
+            string result = $"{Id}:{Title}";
             foreach(var author in Authors)
             {
-                result += " " + author.Name;
+                result += " | " + author.Name;
             }
             return result;
         }
     }
 }
+
+//Authors?[0].Name ?? "Неизвестен"

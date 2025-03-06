@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Library.Views"
-        xmlns:viewModels="clr-namespace:Library.ViewModels"
         mc:Ignorable="d"
         Title="Книги" Height="450" Width="800">
     <StackPanel>
@@ -16,46 +15,57 @@
             <MenuItem Header="_Удалитьь автора" 
              Command="{Binding RemoveAuthorCommand}"/>
         </Menu>
+        
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <DataGrid Grid.Column="0" MinWidth="120" Margin="10"
-                  ItemsSource="{Binding Items}"
-                  SelectedItem="{Binding SelectedItem, 
-            Mode=TwoWay}"
-                  AutoGenerateColumns="False"
-                  HorizontalAlignment="Left">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True"/>
-                    <DataGridTextColumn Binding="{Binding Title}" 
-                                    Header="Книга"/>
-                </DataGrid.Columns>
-            </DataGrid>
-            
-            <ListBox Grid.Column="1" MinWidth="80" Margin="10"
-                 ItemsSource="{Binding BookAuthors}"
-                 SelectedItem="{Binding SelectedBookItem, 
-            Mode=TwoWay}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            
-            <ListBox Grid.Column="2" MinWidth="80" Margin="10"
-                 ItemsSource="{Binding AllAuthors}"
-                 SelectedItem="{Binding SelectedAuthor, 
-            Mode=TwoWay}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Name}"/>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+
+            <StackPanel  Grid.Column="0" Margin="10">
+                <TextBlock Text="Книги" Margin="5" FontWeight="Bold"/>
+                <DataGrid MinWidth="120" Margin="10"
+                        ItemsSource="{Binding Items}"
+                        SelectedItem="{Binding SelectedItem, 
+                Mode=TwoWay}"
+                        AutoGenerateColumns="False"
+                        HorizontalAlignment="Left">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Title}" 
+                                        Header="Книга"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10">
+                <TextBlock Text="Авторы книги" Margin="5" FontWeight="Bold"/>
+                <ListBox MinWidth="80" Margin="10"
+                     ItemsSource="{Binding BookAuthors}"
+                     SelectedItem="{Binding SelectedBookItem, 
+                        Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Margin="10">
+                <TextBlock Text="Авторы" Margin="5" FontWeight="Bold"/>
+                <ListBox MinWidth="80" Margin="10"
+                     ItemsSource="{Binding AllAuthors}"
+                    SelectedItem="{Binding SelectedAuthor, 
+                    Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
         </Grid>
     </StackPanel>
 </Window>

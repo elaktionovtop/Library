@@ -111,6 +111,7 @@ namespace Library.ViewModels
         public void Authors()
         {
             new AuthorsWindow().ShowDialog();
+            AllAuthors = new ObservableCollection<Author>(App.Repository.GetAuthors());
         }
 
         [RelayCommand]

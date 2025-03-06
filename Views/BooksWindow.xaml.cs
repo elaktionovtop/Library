@@ -23,6 +23,8 @@ namespace Library.Views
         {
             InitializeComponent();
             DataContext = App.BooksViewModel;
+            Closed += (s, e) => App.Repository.SaveChanges();
+
         }
     }
 }

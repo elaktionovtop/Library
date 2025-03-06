@@ -15,16 +15,14 @@ using System.Windows.Shapes;
 namespace Library.Views
 {
     /// <summary>
-    /// Логика взаимодействия для ReadersWindow.xaml
+    /// Логика взаимодействия для BookSearchWindow.xaml
     /// </summary>
-    public partial class ReadersWindow : Window
+    public partial class BookSearchWindow : Window
     {
-        public ReadersWindow()
+        public BookSearchWindow()
         {
             InitializeComponent();
-            DataContext = App.ReadersViewModel;
-            Closed += (s, e) => App.Repository.SaveChanges();
-
+            DataContext = App.BookSearchViewModel;
         }
     }
 }

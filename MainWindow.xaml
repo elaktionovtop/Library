@@ -1,28 +1,128 @@
 ﻿<Window x:Class="Library.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Library"
-        xmlns:views="clr-namespace:Library.Views"
-        xmlns:viewModels="clr-namespace:Library.ViewModels"
-        mc:Ignorable="d"
-        Title="Библиотека" Height="450" Width="800">
-    <Window.DataContext>
-        <viewModels:MainViewModel/>
-    </Window.DataContext>
+        Height="450" 
+        Title="Библиотека" 
+        Width="800"
+        >
+    
     <StackPanel>
         <Menu>
-            <MenuItem Header="_Выдать книгу" Command="{Binding BorrowBookCommand}"/>
-            <MenuItem Header="Вернуть _книгу" Command="{Binding ReturnBookCommand}"/>
-            <MenuItem Header="_Читатели" Command="{Binding ReadersCommand}"/>
-            <MenuItem Header="_Экземпляры" Command="{Binding BookCopiesCommand}"/>
-            <MenuItem Header="_Библиотекари" Command="{Binding LibrariansCommand}"/>
+            <MenuItem Command="{Binding BorrowBookCommand}"
+                      Header="_Выдать книгу" 
+                      />
+            <MenuItem Command="{Binding ReturnBookCommand}"
+                      Header="Вернуть _книгу"
+                      />
+            <MenuItem Command="{Binding ViewReadersCommand}"
+                      Header="_Читатели" 
+                      />
+            <MenuItem Command="{Binding ViewBookCopiesCommand}"
+                      Header="_Экземпляры"
+                      />
+            <MenuItem Command="{Binding BookSearchCommand}"
+                      Header="_Поиск книг"
+                      />
+            <MenuItem x:Name="LibrariansCommand"
+                      Command="{Binding ViewLibrariansCommand}"
+                      Header="_Библиотекари" 
+                      Visibility="Hidden"
+                      />
         </Menu>
+        
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
 
+            <StackPanel Grid.Column="0" 
+                        Margin="10"
+                        >
+                <TextBlock FontWeight="Bold"
+                           Margin="5" 
+                           Text="Читатели"
+                           />
+                <ListBox Height="150"
+                         ItemsSource="{Binding Readers}"
+                         SelectedItem="{Binding SelectedReader,
+                                        Mode=TwoWay}"
+                         >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1"
+                        HorizontalAlignment="Center"
+                        Margin="10"
+                        >
+                <TextBlock FontWeight="Bold"
+                           Margin="5"
+                           Text="Журнал"
+                           />
+                <DataGrid AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          CanUserResizeColumns="False"
+                          Height="200"
+                          IsReadOnly="True"
+                          ItemsSource="{Binding Items}"
+                          SelectedItem="{Binding SelectedItem, 
+                                        Mode=TwoWay}"
+                          SelectionChanged="Grid_SelectionChanged"
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Reader.Name}"
+                                            Header="Читатель"
+                                            />
+                        <DataGridTextColumn Binding="{Binding BookCopy.Book.Title}" 
+                                            Header="Книга"
+                                            />
+                        <DataGridTextColumn Binding="{Binding LoanDate, 
+                                                     StringFormat='dd.MM.yyyy'}" 
+                                            Header="Выдана"
+                                            />
+                        <DataGridTextColumn Binding="{Binding ReturnDate,
+                                                     StringFormat='dd.MM.yyyy'}" 
+                                            Header="Возвращена"
+                                            />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" 
+                        Margin="10"
+                        >
+                <TextBlock FontWeight="Bold" 
+                           Margin="5" 
+                           Text="Книги"
+                           />
+                <DataGrid AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          HorizontalAlignment="Right"
+                          ItemsSource="{Binding BookCopies}"
+                          MinWidth="120" 
+                          SelectedItem="{Binding SelectedBookCopy, 
+                                        Mode=TwoWay}"
+                          >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Book.Title}" 
+                                            Header="Книга"
+                                            />
+                        <DataGridCheckBoxColumn Binding="{Binding IsFree}" 
+                                            Header="Есть"
+                                                />
+                        <DataGridTextColumn Binding="{Binding RegNumber}" 
+                                            Header="###"
+                                            />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
         </Grid>
     </StackPanel>
 </Window>
-
-<!-- команды: выдать книгу, вернуть книгу, читатели, экземпляры, библиотекари-->

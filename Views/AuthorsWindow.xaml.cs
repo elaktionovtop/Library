@@ -14,15 +14,13 @@ using System.Windows.Shapes;
 
 namespace Library.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для AuthorsWindow.xaml
-    /// </summary>
     public partial class AuthorsWindow : Window
     {
         public AuthorsWindow()
         {
             InitializeComponent();
             DataContext = App.AuthorsViewModel;
+            Closed += (s, e) => App.Repository.SaveChanges();
         }
     }
 }

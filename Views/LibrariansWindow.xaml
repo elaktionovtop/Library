@@ -1,0 +1,40 @@
+﻿<Window x:Class="Library.Views.LibrariansWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Library.Views"
+        Height="450" 
+        Title="LibrariansWindow" 
+        Width="800"
+        >
+    <Grid>
+        <StackPanel  Grid.Column="0"
+                     Margin="10"
+                     >
+            <TextBlock FontWeight="Bold"
+                       Margin="5" 
+                       Text="Библиотекари" 
+                       />
+            <DataGrid AutoGenerateColumns="False"
+                      HorizontalAlignment="Left"
+                      ItemsSource="{Binding Items}"
+                      SelectedItem="{Binding SelectedItem, 
+                                    Mode=TwoWay}"
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" 
+                                        Header="ID" 
+                                        IsReadOnly="True"
+                                        />
+                    <DataGridTextColumn Binding="{Binding Name}" 
+                                        Header="Библиотекарь"
+                                        />
+                    <DataGridTextColumn Binding="{Binding Login}" 
+                                        Header="Логин"
+                                        />
+                    <DataGridTextColumn Binding="{Binding Password}" 
+                                        Header="Пароль"
+                                        />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid></Window>

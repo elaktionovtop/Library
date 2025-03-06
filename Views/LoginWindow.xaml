@@ -1,0 +1,35 @@
+﻿<Window x:Class="Library.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Height="200"
+        Title="Ввдеите логин и пароль"
+        Width="400"
+        >
+    <StackPanel Margin="10">
+        <TextBlock Margin="0,0,0,5"
+                   Text="Логин"
+                   Width="200"
+                   />
+        
+        <TextBox x:Name="UsernameTextBox"
+                 Margin="0,0,0,10"
+                 Text="Admin"
+                 Width="200"
+                 />
+        
+        <TextBlock Margin="0,0,0,5"
+                   Width="200"
+                   Text="Пароль" 
+                   />
+        
+        <PasswordBox x:Name="PasswordBox"
+                     Margin="0,0,0,10"
+                     Password="111"
+                     Width="200"
+                     />
+        <Button Click="LoginButton_Click"
+                Content="Войти" 
+                Width="100"
+                />
+    </StackPanel>
+</Window>

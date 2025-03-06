@@ -4,6 +4,7 @@ using Library.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Library.Migrations
 {
     [DbContext(typeof(DbLibraryContext))]
-    partial class DbLibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20250221095641_LoanRecord")]
+    partial class LoanRecord
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,9 +85,6 @@ namespace Library.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsFree")
-                        .HasColumnType("bit");
-
                     b.Property<string>("RegNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -96,31 +96,6 @@ namespace Library.Migrations
                     b.ToTable("BookCopies");
                 });
 
-            modelBuilder.Entity("Library.Models.Librarians", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Librarians");
-                });
-
             modelBuilder.Entity("Library.Models.LoanRecord", b =>
                 {
                     b.Property<int>("Id")
@@ -129,7 +104,7 @@ namespace Library.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BookCopyId")
+                    b.Property<int>("BookId")
                         .HasColumnType("int");
 
                     b.Property<DateOnly>("LoanDate")
@@ -143,7 +118,7 @@ namespace Library.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookCopyId");
+                    b.HasIndex("BookId");
 
                     b.HasIndex("ReaderId");
 
@@ -198,9 +173,9 @@ namespace Library.Migrations
 
             modelBuilder.Entity("Library.Models.LoanRecord", b =>
                 {
-                    b.HasOne("Library.Models.BookCopy", "BookCopy")
+                    b.HasOne("Library.Models.Book", "Book")
                         .WithMany()
-                        .HasForeignKey("BookCopyId")
+                        .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -210,7 +185,7 @@ namespace Library.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("BookCopy");
+                    b.Navigation("Book");
 
                     b.Navigation("Reader");
                 });

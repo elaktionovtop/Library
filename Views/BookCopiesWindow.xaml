@@ -3,19 +3,63 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Library.Views"
-        xmlns:viewModels="clr-namespace:Library.ViewModels"
        mc:Ignorable="d"
         Title="Экземляры книг" Height="450" Width="800">
-    <Window.DataContext>
-        <viewModels:BookCopiesViewModel/>
-    </Window.DataContext>
     <StackPanel>
         <Menu>
-            <MenuItem Header="_Книги" Command="{Binding BooksCommand}"/>
+            <MenuItem Header="_Книги" Command="{Binding ViewBooksCommand}"/>
+            <MenuItem Header="_Добавить экземпляр" Command="{Binding AddBookCopyCommand}"/>
         </Menu>
-        <Grid>
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel  Grid.Column="0" Margin="10">
+                <TextBlock Text="Экземпляры" Margin="5" FontWeight="Bold"/>
+                <DataGrid MinWidth="120" CanUserAddRows="False"
+                  ItemsSource="{Binding Items}"
+                  SelectedItem="{Binding SelectedItem, 
+            Mode=TwoWay}"
+                  AutoGenerateColumns="False"
+                  HorizontalAlignment="Left">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding Id}" Header="ID" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding Book.Title}" 
+                                    Header="Книга"/>
+                        <DataGridCheckBoxColumn Binding="{Binding IsFree}" 
+                                    Header="Есть"/>
+                        <DataGridTextColumn Binding="{Binding RegNumber}" 
+                                    Header="###"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+
+            <StackPanel  Grid.Column="1" Margin="10">
+                <TextBlock Margin="5" FontWeight="Bold">
+                    Регистрационный
+                    <LineBreak/>
+                    номер
+                </TextBlock>
+                <TextBox Width="80" Text="{Binding RegNumber}"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Margin="10">
+                <TextBlock Text="Книги" Margin="5" FontWeight="Bold"/>
+                <ListBox MinWidth="120"
+                     ItemsSource="{Binding Books}"
+                     SelectedItem="{Binding SelectedBook, 
+                Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Title}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
         </Grid>
     </StackPanel>
 </Window>

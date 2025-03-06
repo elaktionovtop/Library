@@ -1,0 +1,27 @@
+﻿окно экземпляров  
+главное окно  
+
+шаг 5
+добавляем BookCopy
+	Id, RegNumber, Book (ссылка)
+	миграция CopyBook
+BookCopiesViewModel
+BookCopiesWindow
+	DataGrid BookCopies
+	ListBox Books
+	по команде (двойному щелчку)
+		в запись заносится ссылка на книгу
+		а в DataGrid появляется название книги
+	
+в главном окне тот же принцип
+	по щелчку заносится ссылка
+	и появляется Name, Title
+добавляем IsFree в BookCopy и выводим
+задаем  IsFree = True при добавлении
+добавляем LoanRecord
+	Id, Reader, BookCopy, IssueDate, ReturnDate
+DbContext, App
+DataGrid, 2 ListBox
+
+окно читателей
+делаем - как окно авторов

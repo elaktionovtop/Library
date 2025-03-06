@@ -14,7 +14,7 @@ namespace Library.Models
 
         public override string ToString()
         {
-            string result = $"{Name}";
+            string result = $"{Id}:{Name}";
             foreach(var book in Books)
             {
                 result += " | " + book.Title;

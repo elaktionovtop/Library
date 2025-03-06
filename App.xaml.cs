@@ -1,5 +1,7 @@
 ﻿using Library.Data;
+using Library.Models;
 using Library.ViewModels;
+using Library.Views;
 
 using System.Configuration;
 using System.Data;
@@ -9,9 +11,6 @@ using static Library.Data.DbLibraryContext;
 
 namespace Library
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         private static DbLibraryContext? _repository;
@@ -23,6 +22,8 @@ namespace Library
         private static ReadersViewModel? _readersViewModel;
         public static ReadersViewModel ReadersViewModel => _readersViewModel;
 
+        private static BookCopiesViewModel? _bookCopiesViewModel;
+        public static BookCopiesViewModel BookCopiesViewModel => _bookCopiesViewModel;
 
         private static BooksViewModel? _booksViewModel;
         public static BooksViewModel BooksViewModel =>
@@ -30,6 +31,13 @@ namespace Library
         
         private static AuthorsViewModel? _authorsViewModel;
         public static AuthorsViewModel AuthorsViewModel => _authorsViewModel;
+
+        private static LibrariansViewModel? _librariansViewModel;
+        public static LibrariansViewModel LibrariansViewModel => _librariansViewModel;
+
+        private static BookSearchViewModel? _bookSearchViewModel;
+        public static BookSearchViewModel BookSearchViewModel =>
+        _bookSearchViewModel;
 
         void App_StartUp(object sender, EventArgs e)
         {
@@ -39,13 +47,17 @@ namespace Library
                     CreateDbContext(Array.Empty<string>());
                 _repository.Load();
 
-                _mainViewModel = new MainViewModel();
+                _mainViewModel = new MainViewModel(_repository.GetLoanRecords(),
+                    _repository.GetReaders(), _repository.GetBookCopies());
                 _readersViewModel = new ReadersViewModel
                     (_repository.GetReaders());
-                _authorsViewModel = new AuthorsViewModel
-                    (_repository.GetAuthors());
                 _booksViewModel = new BooksViewModel
                     (_repository.GetBooks(), _repository.GetAuthors());
+                _bookCopiesViewModel = new BookCopiesViewModel(_repository.GetBookCopies(), _repository.GetBooks());
+                _authorsViewModel = new AuthorsViewModel
+                    (_repository.GetAuthors());
+                _librariansViewModel = new LibrariansViewModel(_repository.GetLibrarians());
+                _bookSearchViewModel = new BookSearchViewModel();
             }
             catch(Exception ex)
             {

@@ -17,7 +17,6 @@ App.xml
 добавляем ReadersViewModel
 формируем ReadersWindow
 
-
 собираем без ошибок
 запускаем миграцию 
 Add-Migration Init

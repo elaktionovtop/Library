@@ -14,14 +14,13 @@ using System.Windows.Shapes;
 
 namespace Library.Views
 {
-    /// <summary>
-    /// Логика взаимодействия для BookCopiesWindow.xaml
-    /// </summary>
     public partial class BookCopiesWindow : Window
     {
         public BookCopiesWindow()
         {
             InitializeComponent();
+            DataContext = App.BookCopiesViewModel;
+            Closed += (s, e) => App.Repository.SaveChanges();
         }
     }
 }
