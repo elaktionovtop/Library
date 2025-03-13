@@ -18,13 +18,15 @@ namespace Library.Views
 {
     public partial class LoginWindow : Window
     {
+        int _maxRepetitionCount;
         IEnumerable<Librarian> _librarians;
-        public UserType UserType { get; set; } = UserType.Librarian;
 
-        public LoginWindow(IEnumerable<Librarian> librarians)
+        public LoginWindow(IEnumerable<Librarian> librarians, 
+            int maxRepetitionCount = 3)
         {
             InitializeComponent();
             _librarians = librarians;
+            _maxRepetitionCount = maxRepetitionCount;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
@@ -32,20 +34,41 @@ namespace Library.Views
             string username = UsernameTextBox.Text;
             string password = PasswordBox.Password;
 
-            var user = _librarians.FirstOrDefault(l => l.Login == username);
-            if (user.Login == "Admin")
+            if(string.IsNullOrWhiteSpace(username))
             {
-                UserType = UserType.Admin;
+                App.UserType = UserType.Reader;
+                DialogResult = true;
+                return;
             }
 
-            if (user is not null && user.Password == password)
+            var user = _librarians.FirstOrDefault(l => l.Login == username);
+            if (user?.Login == "Admin")
+            {
+                App.UserType = UserType.Admin;
+            }
+            else
+            {
+                App.UserType = UserType.Librarian;
+            }
+
+            if(user?.Password == password)
             {
                 DialogResult = true;
             }
             else
             {
-                MessageBox.Show("Неверный логин или пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                DialogResult = false;
+                if(--_maxRepetitionCount == 0)
+                {
+                    MessageBox.Show("Неверный логин или пароль\nЧисло попыток исчерпано.",
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    DialogResult = false;
+                }
+                else
+                {
+                    MessageBox.Show($"Неверный логин или пароль\n" +
+                        $"У Вас еще попыток: {_maxRepetitionCount}",
+                        "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }

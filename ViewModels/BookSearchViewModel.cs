@@ -26,14 +26,33 @@ namespace Library.ViewModels
         private BookCopy? _selectedItem;
 
         [ObservableProperty]
+        private ObservableCollection<Author> _bookAuthors = new();
+
+        [ObservableProperty]
         private string _pattern;
+
+        public BookSearchViewModel()
+        {
+            PropertyChanged += (s, e) =>
+            {
+                if(e.PropertyName == nameof(SelectedItem))
+                {
+                    UpdateBookAuthors();
+                }
+            };
+        }
 
         [RelayCommand]
         public void SearchByTitle()
         {
             var bookCopies = App.Repository.GetBookCopies()
-                .Where(b => b.Book.Title.Contains(Pattern));
+                .Where(b => b.Book.Title.ToUpper().Contains(Pattern.ToUpper()));
             Items = new ObservableCollection<BookCopy>(bookCopies);
+            if(Items.Count > 0)
+            {
+                SelectedItem = Items[0];
+            }
+
         }
 
         [RelayCommand]
@@ -41,8 +60,25 @@ namespace Library.ViewModels
         {
             var bookCopies = App.Repository.GetBookCopies()
                 .Where(bc => bc.Book.Authors
-                .Any(a => a.Name.Contains(Pattern)));
+                .Any(a => a.Name.ToUpper().Contains(Pattern.ToUpper())));
             Items = new ObservableCollection<BookCopy>(bookCopies);
+            if(Items.Count > 0)
+            {
+                SelectedItem = Items[0];
+            }
+
+        }
+
+        private void UpdateBookAuthors()
+        {
+            BookAuthors.Clear();
+            if(SelectedItem is not null)
+            {
+                foreach(var author in SelectedItem.Book.Authors)
+                {
+                    BookAuthors.Add(author);
+                }
+            }
         }
     }
 }

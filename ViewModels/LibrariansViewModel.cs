@@ -12,52 +12,10 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModels
 {
-    public partial class LibrariansViewModel : ObservableObject
+    public partial class LibrariansViewModel 
+        : ObservableCollectionViewModel<Librarian>
     {
-        [ObservableProperty]
-        private ObservableCollection<Librarian> _items;
-
-        [ObservableProperty]
-        private Librarian _selectedItem;
-
-        // конструктор получает данные из БД
-        public LibrariansViewModel(IEnumerable<Librarian> items)
-        {
-            Items = new ObservableCollection<Librarian>(items);
-            if(Items.Count > 0)
-            {
-                SelectedItem = Items[0];
-            }
-            Items.CollectionChanged += Items_CollectionChanged;
-        }
-
-        // добавления и удаления Items передаем в репозиторий БД
-        public void Items_CollectionChanged(object? sender,
-                NotifyCollectionChangedEventArgs e)
-        {
-            Debug.WriteLine(e.Action);
-            switch(e.Action)
-            {
-                case NotifyCollectionChangedAction.Add:
-                    if(e.NewItems is not null)
-                    {
-                        foreach(var item in e.NewItems)
-                        {
-                            App.Repository.Add(item);
-                        }
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Remove:
-                    if(e.OldItems is not null)
-                    {
-                        foreach(var item in e.OldItems)
-                        {
-                            App.Repository.Remove(item);
-                        }
-                    }
-                    break;
-            }
-        }
+        public LibrariansViewModel(IEnumerable<Librarian> items) 
+            : base(items) { }
     }
-
 }

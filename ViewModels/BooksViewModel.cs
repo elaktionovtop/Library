@@ -16,13 +16,14 @@ using System.Diagnostics;
 
 namespace Library.ViewModels
 {
-    public partial class BooksViewModel : ObservableObject
+    public partial class BooksViewModel 
+        : ObservableCollectionViewModel<Book>
     {
-        [ObservableProperty]
-        private ObservableCollection<Book> _items;
+        //[ObservableProperty]
+        //private ObservableCollection<Book> _items;
 
-        [ObservableProperty]
-        private Book? _selectedItem;
+        //[ObservableProperty]
+        //private Book? _selectedItem;
 
         [ObservableProperty]
         private ObservableCollection<Author> _allAuthors;
@@ -38,15 +39,15 @@ namespace Library.ViewModels
 
         // конструктор получает книги и авторов
         public BooksViewModel(IEnumerable<Book> items,
-            IEnumerable<Author> authors)
+            IEnumerable<Author> authors) :base(items)
         {
-            Items = new ObservableCollection<Book>(items);
-            if(Items.Count > 0)
-            {
-                SelectedItem = Items[0];
-                UpdateBookAuthors();
-            }
-            Items.CollectionChanged += Items_CollectionChanged;
+            //Items = new ObservableCollection<Book>(items);
+            //if(Items.Count > 0)
+            //{
+            //    SelectedItem = Items[0];
+            //    UpdateBookAuthors();
+            //}
+            //Items.CollectionChanged += Items_CollectionChanged;
             
             AllAuthors = new ObservableCollection<Author>(authors);
             if(AllAuthors.Count > 0)
@@ -63,33 +64,33 @@ namespace Library.ViewModels
             };
         }
 
-        // добавления и удаления Items передаем в репозиторий БД
-        public void Items_CollectionChanged(object? sender,
-                NotifyCollectionChangedEventArgs e)
-        {
-            Debug.WriteLine(e.Action);
-            switch(e.Action)
-            {
-                case NotifyCollectionChangedAction.Add:
-                    if(e.NewItems is not null)
-                    {
-                        foreach(var item in e.NewItems)
-                        {
-                            App.Repository.Add(item);
-                        }
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Remove:
-                    if(e.OldItems is not null)
-                    {
-                        foreach(var item in e.OldItems)
-                        {
-                            App.Repository.Remove(item);
-                        }
-                    }
-                    break;
-            }
-        }
+        //// добавления и удаления Items передаем в репозиторий БД
+        //public void Items_CollectionChanged(object? sender,
+        //        NotifyCollectionChangedEventArgs e)
+        //{
+        //    Debug.WriteLine(e.Action);
+        //    switch(e.Action)
+        //    {
+        //        case NotifyCollectionChangedAction.Add:
+        //            if(e.NewItems is not null)
+        //            {
+        //                foreach(var item in e.NewItems)
+        //                {
+        //                    App.Repository.Add(item);
+        //                }
+        //            }
+        //            break;
+        //        case NotifyCollectionChangedAction.Remove:
+        //            if(e.OldItems is not null)
+        //            {
+        //                foreach(var item in e.OldItems)
+        //                {
+        //                    App.Repository.Remove(item);
+        //                }
+        //            }
+        //            break;
+        //    }
+        //}
 
         private void UpdateBookAuthors()
         {

@@ -13,6 +13,8 @@ namespace Library
 {
     public partial class App : Application
     {
+        public static UserType UserType { get; set; }
+
         private static DbLibraryContext? _repository;
         public static DbLibraryContext Repository => _repository;
 

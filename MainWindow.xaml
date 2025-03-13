@@ -26,7 +26,6 @@
             <MenuItem x:Name="LibrariansCommand"
                       Command="{Binding ViewLibrariansCommand}"
                       Header="_Библиотекари" 
-                      Visibility="Hidden"
                       />
         </Menu>
         

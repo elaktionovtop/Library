@@ -1,4 +1,5 @@
-﻿using Library.Views;
+﻿using Library.Models;
+using Library.Views;
 
 using System.Diagnostics;
 using System.Text;
@@ -15,14 +16,12 @@ using System.Windows.Shapes;
 
 namespace Library
 {
-    public enum UserType { Admin, Librarian, Reader };
-
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             LoginWindow loginWindow = new LoginWindow
-                (App.Repository.GetLibrarians());
+            (App.Repository.GetLibrarians(), 1);
 
             if(loginWindow.ShowDialog() != true)
             {
@@ -31,9 +30,15 @@ namespace Library
 
             InitializeComponent();
             DataContext = App.MainViewModel;
-            if (loginWindow.UserType == UserType.Admin)
+            switch (App.UserType)
             {
-                LibrariansCommand.Visibility = Visibility.Visible;
+                case UserType.Librarian:
+                    LibrariansCommand.Visibility = Visibility.Hidden;
+                    break;
+                case UserType.Reader:
+                    App.MainViewModel.BookSearchCommand.Execute(null);
+                    this.Close();
+                    break;
             }
         }
 

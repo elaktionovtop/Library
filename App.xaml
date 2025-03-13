@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Library"
-             ShutdownMode="OnMainWindowClose"
+             ShutdownMode="OnLastWindowClose"
              Exit="App_Exit"
              Startup="App_StartUp"
              StartupUri="MainWindow.xaml"
